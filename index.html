@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB Replacement and I2 Count</title>
+</head>
+<body>
+    <h1>JavaScript Task</h1>
+    <p>Enter your string below:</p>
+    <input type="text" id="inputString" placeholder="Enter your string here">
+    <button onclick="processString()">Process</button>
+
+    <h2>Results:</h2>
+    <p id="modifiedString"></p>
+    <p id="i2Count"></p>
+
+    <script>
+        function processString() {
+            // Get the input string
+            const input = document.getElementById('inputString').value;
+
+            // Insert '*' between every 'AB'
+            const modified = input.replace(/AB/g, 'A*B');
+
+            // Count occurrences of 'I' before '2'
+            const regex = /I2/g;
+            const matches = input.match(regex);
+            const count = matches ? matches.length : 0;
+
+            // Display results
+            document.getElementById('modifiedString').textContent = `Modified string: ${modified}`;
+            document.getElementById('i2Count').textContent = `Occurrences of 'I' before '2': ${count}`;
+        }
+    </script>
+</body>
+</html>
